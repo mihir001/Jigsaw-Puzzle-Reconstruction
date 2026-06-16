@@ -10,7 +10,7 @@ Each 96×96 RGB image is split into a 3×3 grid of patches, each cropped from 32
 
 ## Approach
 
-A shared CNN encodes each of the 9 patches independently into a 256-dim token, using the same weights for every patch. Three transformer self-attention blocks then let each token update itself based on the other eight — deliberately with no positional encoding, since the input slot order carries no real information here. A small attention layer with 9 learned position queries (in the spirit of DETR's object queries) attends over the 9 tokens to produce a soft assignment of patches to grid cells. Those assigned tiles are scattered onto a 96×96 canvas — true pixels where a patch landed, zeros in the eroded gaps — and a U-Net inpaints the rest, conditioned on a binary mask marking which pixels are real. The final image keeps the exact patch pixels and uses the U-Net's output only inside the gaps.
+A shared CNN encodes each of the 9 patches independently into a 256-dim token, using the same weights for every patch. Three transformer self-attention blocks then let each token update itself based on the other eight deliberately with no positional encoding, since the input slot order carries no real information here. A small attention layer with 9 learned position queries attends over the 9 tokens to produce a soft assignment of patches to grid cells. Those assigned tiles are scattered onto a 96×96 canvas. True pixels where a patch landed, zeros in the eroded gaps and a U-Net inpaints the rest, conditioned on a binary mask marking which pixels are real. The final image keeps the exact patch pixels and uses the U-Net's output only inside the gaps.
 
 ## Training
 
