@@ -1,6 +1,0 @@
-# training config
-seed: 42
-patch_size: 96
-batch_size: 32
-epochs: 50
-lr: 1.0e-4
