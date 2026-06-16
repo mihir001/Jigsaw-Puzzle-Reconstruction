@@ -4,9 +4,6 @@ Reconstructs a 96×96 image from 9 scrambled, eroded 28×28 patches — a shared
 
 > **Result:** Final MAE **0.0301 ± 0.0010**, an **83.5% reduction** over a 0.1824 mean-patch baseline, with **3.44M** trainable parameters.
 
-![reconstruction examples](figures/output.png)
-<!-- replace with an exported actual-vs-reconstructed panel from the notebook -->
-
 ## Problem
 
 Each 96×96 RGB image is split into a 3×3 grid of patches, each cropped from 32×32 down to 28×28 (a 2px erosion border per side), then shuffled into a random order. The model has to recover both the correct placement of the 9 patches and the visual content removed by the erosion, without ever being told which patch came from where. Trained and evaluated on STL-10 (100k unlabeled 96×96 images).
