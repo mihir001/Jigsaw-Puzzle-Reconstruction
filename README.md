@@ -4,7 +4,7 @@ Reconstructs a 96×96 image from 9 scrambled, eroded 28×28 patches — a shared
 
 > **Result:** Final MAE **0.0301 ± 0.0010**, an **83.5% reduction** over a 0.1824 mean-patch baseline, with **3.44M** trainable parameters.
 
-![reconstruction examples](figures/reconstruction_examples.png)
+![reconstruction examples](figures/output.png)
 <!-- replace with an exported actual-vs-reconstructed panel from the notebook -->
 
 ## Problem
